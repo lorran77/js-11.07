@@ -93,27 +93,104 @@ let endereco =
     bairro: 'Ipiranga',
     cidade: 'São Paulo'
 }
+
 // Bracket Notation (notação do colchete)
 console.log(`\n\nrua: ${endereco['rua']}`);
 console.log(`Cidade: ${endereco['cidade']}`);
 
 // Dot Notation (notação do ponto)
 console.log(`\n\nrua: ${endereco.rua}`);
-console.log(`Cidade: ${endereco.cidade}`);
+console.log(`Cidade: ${endereco.cidade} \n\n`);
 
 // Imprimir no HTML
 // document.write(`rua: ${endereco.rua}`);
 // document.write(`Cidade: ${endereco.cidade}`);
 
+// _______________________________________________________________________
 
 
+
+console.log('\n\nFor in\n')
 // Declaração de função que percorre e imprime o nome da propriedade e valor
 function mostraEndereco(endereco)
 {
     for (let campo in endereco)
-    {
-        console.log(campo, endereco[campo]);
-    }
+        console.log(campo,endereco[campo]);
+ }
+ 
+ mostraEndereco(endereco);
+// _______________________________________________________________________
+
+
+
+console.log('\n\nFactory function\n')
+// Factory function - Criar objetos
+function criarEndereco(rua, numero, cep, bairro,cidade)
+{
+    return{rua, numero, cep, bairro,cidade}
 }
-function mostraEndereco(endereco)
+// criando novo objeto
+let endereco2 = criarEndereco('Nazare', 123, 9087777, 'mooca', 'rio de janeiro');
+let endereco3 = criarEndereco('Socorro', '321', '3434567', 'Taboão', 'São Paulo');
+
+// imprimir
+mostraEndereco(endereco2)
+console.log('');
+mostraEndereco(endereco3)
+// _______________________________________________________________________
+
+
+
+console.log('\n\nConstructor function\n')
+//Constructor function - função construtor
+//atenção: pascal-case, uso de THIS, ponto e virgula
+function Endereco(rua, numero, cep, bairro, cidade)
+{
+    this.rua = rua;
+    this.numero = numero;
+    this.cep = cep;
+    this.bairro = bairro;
+    this.cidade = cidade;
+ }
+ 
+ //chamada da função construtor:
+ let endereco4 = new Endereco('das laranjas', '111', '98765438', 'Penha', 'Curitiba');
+ 
+ //imprimindo os valores:
+ mostraEndereco(endereco4);
+ // _______________________________________________________________________
+
+
+
+ console.log('\n\nlistas de objetos\n');
+
+ let produtos =
+    [
+        { id: 1 , nome: 'sapato' , cor: 'preto\n'},
+        { id: 2 , nome: 'sandalia' , cor: 'marron\n'},
+        { id: 3 , nome: 'chinelo' , cor: 'azul\n'}
+    ]
+ 
+ 
+
+ //imprimir: 4 opções
+ produtos.forEach( produto => mostraEndereco(produto) );
+ // _______________________________________________________________________
+
+
+ function inserirhtml()
+ {
+    let itemusuario = document.getElementById('lista').value;
+
+    let textnode= document.createTextNode(itemusuario);
+
+    let elementofilholi = document.createElement('li');
+    // elementofilholi.style.listStyle = 'number'; 
+    elementofilholi.appendChild(textnode);
+
+    let elementopaiol = document.getElementById('lista');
+    elementopaiol.appendChild(elementofilholi);
+ }
+
+
 
