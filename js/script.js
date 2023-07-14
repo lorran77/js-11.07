@@ -4,8 +4,7 @@ let itemNumber = 1
 
 console.log(`\nmétodos de vetores, objetos e funções\n`);
 // Função SETA - Arrow function
-listaVetor.forEach( (item) =>
-{
+listaVetor.forEach((item) => {
     console.log(`Fruta ${itemNumber}: ${item}`);
     itemNumber++;
 }
@@ -19,14 +18,12 @@ console.log(`O terceiro item é ${listaVetor[2]}.`);
 
 console.log('\n\nFiltro de frutas com a letra M\n');
 // Metodo FILTER - Apenas items que começam com a letra M (Começa com M: True, se não: False)
-let itensLetraM = listaVetor.filter( function(item)
-{
+let itensLetraM = listaVetor.filter(function (item) {
     return item.startsWith('m');
 }
 );
 
-itensLetraM.forEach( (item) =>
-{
+itensLetraM.forEach((item) => {
     console.log(item);
 }
 );
@@ -37,8 +34,7 @@ itensLetraM.forEach( (item) =>
 console.log(`\n\nVetor de números\n`);
 // Impressão de números 
 let numeros = [7, 5, 3, 8, 9, 4];
-numeros.forEach( (numero) => 
-{
+numeros.forEach((numero) => {
     console.log(numero);
 }
 );
@@ -48,8 +44,7 @@ numeros.forEach( (numero) =>
 
 console.log('\n\nMétodo MAP')
 // Método MAP - Função anônima, cria novo array
-let numerosDobrados = numeros.map( function(numero) 
-{
+let numerosDobrados = numeros.map(function (numero) {
     return numero * 2;
 }
 );
@@ -61,8 +56,7 @@ console.log(numerosDobrados);
 console.log(`\n\nMétodo POP`);
 // Retirar ultimo elemento do array utilizando o método
 numeros.pop();
-numeros.forEach( (numero) => 
-{
+numeros.forEach((numero) => {
     console.log(numero);
 }
 );
@@ -73,8 +67,7 @@ numeros.forEach( (numero) =>
 console.log(`\n\nMétodo PUSH`);
 // Inserir elemento do array utilizando o método PUSH(troca o ultimo elemento)
 numeros.push(`string de números, tipagem dinamica`);
-numeros.forEach( (numero) => 
-{
+numeros.forEach((numero) => {
     console.log(numero);
 }
 );
@@ -112,22 +105,20 @@ console.log(`Cidade: ${endereco.cidade} \n\n`);
 
 console.log('\n\nFor in\n')
 // Declaração de função que percorre e imprime o nome da propriedade e valor
-function mostraEndereco(endereco)
-{
+function mostraEndereco(endereco) {
     for (let campo in endereco)
-        console.log(campo,endereco[campo]);
- }
- 
- mostraEndereco(endereco);
+        console.log(campo, endereco[campo]);
+}
+
+mostraEndereco(endereco);
 // _______________________________________________________________________
 
 
 
 console.log('\n\nFactory function\n')
 // Factory function - Criar objetos
-function criarEndereco(rua, numero, cep, bairro,cidade)
-{
-    return{rua, numero, cep, bairro,cidade}
+function criarEndereco(rua, numero, cep, bairro, cidade) {
+    return { rua, numero, cep, bairro, cidade }
 }
 // criando novo objeto
 let endereco2 = criarEndereco('Nazare', 123, 9087777, 'mooca', 'rio de janeiro');
@@ -144,53 +135,58 @@ mostraEndereco(endereco3)
 console.log('\n\nConstructor function\n')
 //Constructor function - função construtor
 //atenção: pascal-case, uso de THIS, ponto e virgula
-function Endereco(rua, numero, cep, bairro, cidade)
-{
+function Endereco(rua, numero, cep, bairro, cidade) {
     this.rua = rua;
     this.numero = numero;
     this.cep = cep;
     this.bairro = bairro;
     this.cidade = cidade;
- }
- 
- //chamada da função construtor:
- let endereco4 = new Endereco('das laranjas', '111', '98765438', 'Penha', 'Curitiba');
- 
- //imprimindo os valores:
- mostraEndereco(endereco4);
- // _______________________________________________________________________
+}
+
+//chamada da função construtor:
+let endereco4 = new Endereco('das laranjas', '111', '98765438', 'Penha', 'Curitiba');
+
+//imprimindo os valores:
+mostraEndereco(endereco4);
+// _______________________________________________________________________
 
 
 
- console.log('\n\nlistas de objetos\n');
+console.log('\n\nlistas de objetos\n');
 
- let produtos =
+let produtos =
     [
-        { id: 1 , nome: 'sapato' , cor: 'preto\n'},
-        { id: 2 , nome: 'sandalia' , cor: 'marron\n'},
-        { id: 3 , nome: 'chinelo' , cor: 'azul\n'}
+        { id: 1, nome: 'sapato', cor: 'preto\n' },
+        { id: 2, nome: 'sandalia', cor: 'marron\n' },
+        { id: 3, nome: 'chinelo', cor: 'azul\n' }
     ]
- 
- 
-
- //imprimir: 4 opções
- produtos.forEach( produto => mostraEndereco(produto) );
- // _______________________________________________________________________
 
 
- function inserirhtml()
- {
-    let itemusuario = document.getElementById('lista').value;
 
-    let textnode= document.createTextNode(itemusuario);
+//imprimir: 4 opções
+produtos.forEach(produto => mostraEndereco(produto));
+// _______________________________________________________________________
 
-    let elementofilholi = document.createElement('li');
-    // elementofilholi.style.listStyle = 'number'; 
-    elementofilholi.appendChild(textnode);
 
-    let elementopaiol = document.getElementById('lista');
-    elementopaiol.appendChild(elementofilholi);
- }
+
+//Lista inserida no HTML innerhtml
+function mostraEnderec(produtos) {
+    for (let cadacampo of produtos) {
+        for (let item in cadacampo) {
+
+        document.write(item, cadacampo[item]);
+        // let listinha = document.createElement('li').value = (item, cadacampo[item]);
+        // document.write(listinha);
+        };
+    };
+};
+mostraEnderec(produtos);
+// _______________________________________________________________________
+
+
+
+
+
 
 
 
